@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+      "target": "es2015",
+      "module": "commonjs",
+      "allowSyntheticDefaultImports": true,
+      "baseUrl": ".",
+      "paths": {
+          "@tests/*": [
+              "./server/tests/*"
+          ],
+          "@controllers/*": [
+              "./server/src/controllers/*"
+          ],
+          "@helpers/*": [
+              "./server/src/helpers/*"
+          ],
+          "@models/*": [
+              "./server/src/models/*"
+          ],
+          "@validations/*": [
+              "./server/src/validations/*"
+          ],
+          "@middlewares/*": [
+              "./server/src/middlewares/*"
+          ],
+          "@routes/*": [
+              "./server/src/routes/*"
+          ]
+      }
+  },
+  "exclude": [
+      "node_modules"
+  ],
+}
