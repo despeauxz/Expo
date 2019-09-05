@@ -9,5 +9,4 @@ const generateUsername = () => {
   return random;
 };
 
-// eslint-disable-next-line import/prefer-default-export
-export { generateUsername };
+export default generateUsername;

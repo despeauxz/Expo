@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { generateUsername } from '@helpers/auth.helper';
+import generateUsername from '@helpers/auth.helper';
 
 describe('Auth Helpers', () => {
   it('should return random string for username', () => {

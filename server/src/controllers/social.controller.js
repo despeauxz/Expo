@@ -1,6 +1,6 @@
 import { config } from 'dotenv';
 import authenticate from '@middlewares/authenticate.middleware';
-import { generateUsername } from '@helpers/auth.helper';
+import generateUsername from '@helpers/auth.helper';
 import models from '@models';
 
 config();
@@ -13,7 +13,6 @@ const socialAuth = async (accessToken, refreshToken, profile, done) => {
     const {
       id, displayName, emails, photos,
     } = profile;
-    console.log('>>>>>', profile);
 
     const [firstname, lastname] = displayName.split(' ');
 
