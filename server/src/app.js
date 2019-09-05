@@ -2,10 +2,17 @@ import express from 'express';
 import debug from 'debug';
 import logger from 'morgan';
 import { config } from 'dotenv';
+import passport from 'passport';
+import session from 'express-session';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import apis from '@routes/api';
-import errorHandler from '@middlewares/errorHandler';
+import errorHandler from '@middlewares/errorHandler.middleware';
+import apis from '@routes';
+import {
+  facebookStrategy,
+  googleStrategy,
+  twitterStrategy
+} from '../config/passport';
 
 const debugged = debug('app');
 config();
@@ -27,7 +34,19 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-app.use('/api/v1', apis);
+app.use(passport.initialize());
+
+passport.use('facebook', facebookStrategy);
+passport.use('google', googleStrategy);
+passport.use('twitter', twitterStrategy);
+
+app.use(session({
+  secret: process.env.SECRET_KEY,
+  resave: false,
+  saveUninitialized: true,
+}));
+
+app.use('/api', apis);
 
 app.use((request, response, next) => {
   const error = new Error('Not Found');
