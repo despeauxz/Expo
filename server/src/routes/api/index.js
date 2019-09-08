@@ -1,11 +1,8 @@
 import express from 'express';
+import socialRoutes from './social';
 
-const apiRouter = express.Router();
+const router = express.Router();
 
-apiRouter.get('/', (request, response) => response.status(200).json({
-  status: 200,
-  message: 'Welcome to the Expo API'
-}));
+router.use('/', socialRoutes);
 
-
-export default apiRouter;
+export default router;

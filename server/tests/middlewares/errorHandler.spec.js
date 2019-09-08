@@ -1,6 +1,6 @@
 import sinon from 'sinon';
 import { assert } from 'chai';
-import errorHandler from '@middlewares/errorHandler';
+import errorHandler from '@middlewares/errorHandler.middleware';
 
 const jsonFunc = sinon.spy();
 
