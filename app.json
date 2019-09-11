@@ -1,0 +1,59 @@
+{
+  "name": "expo",
+  "description": "A student learning platform",
+  "scripts": {
+    "postdeploy": "yarn run refreshdb"
+  },
+  "env": {
+    "SALT": {
+      "required": true
+    },
+    "HEROKU_APP_NAME": {
+      "required": true
+    },
+    "HEROKU_PARENT_APP_NAME": {
+      "required": true
+    },
+    "BASE_URL": {
+      "required": true
+    },
+    "PROJECT_EMAIL": {
+      "required": true
+    },
+    "FACEBOOK_APP_ID": {
+      "required": true
+    },
+    "FACEBOOK_APP_SECRET": {
+      "required": true
+    },
+    "FACEBOOK_CALLBACK_URL": {
+      "required": true
+    },
+    "GOOGLE_APP_ID": {
+      "required": true
+    },
+    "GOOGLE_APP_SECRET": {
+      "required": true
+    },
+    "GOOGLE_CALLBACK_URL": {
+      "required": true
+    },
+    "TWITTER_APP_KEY": {
+      "required": true
+    },
+    "TWITTER_APP_SECRET": {
+      "required": true
+    },
+    "TWITTER_CALLBACK_URL": {
+      "required": true
+    }
+  },
+  "formation": {},
+  "addons": ["heroku-postgresql"],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "stack": "heroku-18"
+}
