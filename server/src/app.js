@@ -6,6 +6,7 @@ import passport from 'passport';
 import session from 'express-session';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import swaggerUi from 'swagger-ui-express';
 import errorHandler from '@middlewares/errorHandler.middleware';
 import apis from '@routes';
 import {
@@ -13,6 +14,7 @@ import {
   googleStrategy,
   twitterStrategy
 } from '../config/passport';
+import swaggerSpec from '../config/swagger';
 
 const debugged = debug('app');
 config();
@@ -47,6 +49,13 @@ app.use(session({
 }));
 
 app.use('/api', apis);
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use((request, response, next) => {
+  const error = new Error('Not Found');
+  error.status = 404;
+  next(error);
+});
 
 app.use((request, response, next) => {
   const error = new Error('Not Found');

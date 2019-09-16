@@ -1,0 +1,20 @@
+swagger: '2.0'
+info:
+  description: 'Expo - A student learning platform'
+  version: '1.0.0'
+  title: 'Expo'
+  license:
+    name: 'MIT'
+    url: 'https://www.apache.org/licenses/LICENSE-2.0.html'
+basePath: '/api/v1'
+schemes:
+  - 'https'
+  - 'http'
+securityDefinitions:
+  api_key:
+    type: 'apiKey'
+    name: 'Authorization'
+    in: 'header'
+externalDocs:
+  description: 'Find out more about Expo'
+  url: 'https://github.com/despeauxz/Expo'
